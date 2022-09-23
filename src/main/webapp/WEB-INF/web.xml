@@ -2,49 +2,49 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="5.0">
   <servlet>
     <description></description>
-    <display-name>ListJeux</display-name>
-    <servlet-name>ListJeux</servlet-name>
-    <servlet-class>routing.ListJeux</servlet-class>
+    <display-name>ListBiere</display-name>
+    <servlet-name>ListBiere</servlet-name>
+    <servlet-class>routing.ListBiere</servlet-class>
   </servlet>
-  <error-page>
-    <location>/error.jsp</location>
-  </error-page>
+ 	 <error-page>
+        <location>/error.jsp</location>
+    </error-page>
   <servlet-mapping>
-    <servlet-name>ListJeux</servlet-name>
-    <url-pattern>/ListJeux</url-pattern>
+    <servlet-name>ListBiere</servlet-name>
+    <url-pattern>/ListBiere</url-pattern>
   </servlet-mapping>
-  <display-name>JeuxWeb</display-name>
+  <display-name>BeerWeb</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>GamePage</display-name>
-    <servlet-name>GamePage</servlet-name>
-    <servlet-class>routing.GamePage</servlet-class>
+    <display-name>BierePage</display-name>
+    <servlet-name>BierePage</servlet-name>
+    <servlet-class>routing.BierePage</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GamePage</servlet-name>
-    <url-pattern>/GamePage</url-pattern>
+    <servlet-name>BierePage</servlet-name>
+    <url-pattern>/BierePage</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>NewGenre</display-name>
-    <servlet-name>NewGenre</servlet-name>
-    <servlet-class>routing.NewGenre</servlet-class>
+    <display-name>NewCouleur</display-name>
+    <servlet-name>NewCouleur</servlet-name>
+    <servlet-class>routing.NewCouleur</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>NewGenre</servlet-name>
-    <url-pattern>/NewGenre</url-pattern>
+    <servlet-name>NewCouleur</servlet-name>
+    <url-pattern>/NewCouleur</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>NewPlateformes</display-name>
-    <servlet-name>NewPlateformes</servlet-name>
-    <servlet-class>routing.NewPlateformes</servlet-class>
+    <display-name>NewFermentation</display-name>
+    <servlet-name>NewFermentation</servlet-name>
+    <servlet-class>routing.NewFermentation</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>NewPlateformes</servlet-name>
-    <url-pattern>/NewPlateformes</url-pattern>
+    <servlet-name>NewFermentation</servlet-name>
+    <url-pattern>/NewFermentation</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -13,32 +13,32 @@
 	crossorigin="anonymous">
 
 <meta charset="UTF-8">
-<title>Genre Jeu</title>
+<title>Fermentation Bière</title>
 </head>
 <body>
 
 
-<div class="container bg-dark text-white">	
-<h2>Genre</h2>
+<div class="container text-white" id="creabeer">	
+<h2>Fermentation</h2>
 <c:if test="${not empty message}">
 <p class="invalid">${message}</p>
 </c:if>
 
-  <form action="NewGenre" method="post">
+  <form action="NewFermentation" method="post">
   	<div class="row align-items-center">
-		<div class="col-12 col-md-3">Titre</div>
+		<div class="col-12 col-md-3">Nom</div>
 		<div class="col-12 col-md-9">
-		<input type="text" class="form-control" id="titre"
-			placeholder="Saisi titre" name="titre"
-			value="${genre.titre}" required />
+		<input type="text" class="form-control" id="nom"
+			placeholder="Saisir nom" name="nom"
+			value="${fermentation.fermentationNom}" required />
 		</div>
 	</div>
  	<div class="row align-items-center">
 		<div class="col-12 col-md-3">Description</div>
 		<div class="col-12 col-md-9">	
 		<input type="text" class="form-control" id="description"
-			placeholder="Saisi description" name="description" 
-			value="${genre.description}" required />
+			placeholder="Saisir description" name="description" 
+			value="${fermentation.fermentationDescription}" required />
 		</div>
 	</div>
 	
@@ -47,7 +47,7 @@
 			<button type="submit" class="btn btn-primary mt-3">Add/Update</button>
 		</div>
 		<div class="col-12 col-md-4">		
-			<a class="btn btn-primary mt-3" href="ListJeux">Retour</a>
+			<a class="btn btn-primary mt-3" href="ListBiere">Retour</a>
 		</div>
 	</div>
   </form>

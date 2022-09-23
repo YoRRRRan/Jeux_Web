@@ -3,25 +3,25 @@ package routing;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import dataaccess.GenreDAO;
-import dataaccess.PlateformeDAO;
+import dataaccess.CouleurDAO;
+import dataaccess.FermentationDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Genre;
+import model.Couleur;
 
 /**
  * Servlet implementation class NewGenre
  */
-public class NewGenre extends HttpServlet {
+public class NewCouleur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public NewGenre() {
+	public NewCouleur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,14 +33,14 @@ public class NewGenre extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String message = "";
-		String genreId = request.getParameter("genreId");
-		Genre genre = null;
+		String couleurId = request.getParameter("couleurId");
+		Couleur couleur = null;
 
-		if (genreId == null) {
-			genre = new Genre();
+		if (couleurId == null) {
+			couleur = new Couleur();
 		} else {
 			try {
-				genre = GenreDAO.getGenreById(Integer.parseInt(genreId));
+				couleur = CouleurDAO.getCouleurById(Integer.parseInt(couleurId));
 			} catch (Exception e) {
 				message = "oops";
 			}
@@ -49,8 +49,8 @@ public class NewGenre extends HttpServlet {
 		request.setAttribute("message", message);
 		HttpSession session = request.getSession();
 		// Put genre in the request for the next page
-		session.setAttribute("genre", genre);
-		getServletContext().getRequestDispatcher("/WEB-INF/newgenre.jsp").forward(request, response);
+		session.setAttribute("couleur", couleur);
+		getServletContext().getRequestDispatcher("/WEB-INF/newcouleur.jsp").forward(request, response);
 	}
 
 	/**
@@ -61,25 +61,25 @@ public class NewGenre extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String message = "";
-		Genre genre = (Genre) session.getAttribute("genre");
-		genre.setTitre(request.getParameter("titre"));
-		genre.setDescription(request.getParameter("description"));
+		Couleur couleur = (Couleur) session.getAttribute("couleur");
+		couleur.setCouleurNom(request.getParameter("nom"));
+		couleur.setCouleurDescription(request.getParameter("description"));
 
 		try {
-			if (genre.getGenreId() > 0) {
+			if (couleur.getCouleurId() > 0) {
 				// already exists so do an update
-				GenreDAO.updateGenre(genre);
-				message = "Genre updated";
+				CouleurDAO.updateCouleur(couleur);
+				message = "Couleur updated";
 			} else {
-				GenreDAO.insertGenre(genre);
-				message = "Genre created";
+				CouleurDAO.insertCouleur(couleur);
+				message = "Couleur created";
 			}
 		} catch (SQLException e) {
-			message = "Enter a new title.";
+			message = "Enter a new name.";
 		}
 
 		request.setAttribute("message", message);
-		session.setAttribute("genre", genre);
-		getServletContext().getRequestDispatcher("/WEB-INF/newgenre.jsp").forward(request, response);
+		session.setAttribute("couleur", couleur);
+		getServletContext().getRequestDispatcher("/WEB-INF/newcouleur.jsp").forward(request, response);
 	}
 }

@@ -13,24 +13,24 @@
 	crossorigin="anonymous">
 
 <meta charset="UTF-8">
-<title>Plateforme Page</title>
+<title>Couleur Bière</title>
 </head>
 <body>
 
 
-<div class="container bg-dark text-white">	
-<h2>Plateforme</h2>
+<div class="container text-white" id="creabeer">	
+<h2>Couleur</h2>
 <c:if test="${not empty message}">
 <p class="invalid">${message}</p>
 </c:if>
 
-  <form action="NewPlateformes" method="post">
+  <form action="NewCouleur" method="post">
   	<div class="row align-items-center">
-		<div class="col-12 col-md-3">Nom</div>
+		<div class="col-12 col-md-3">Titre</div>
 		<div class="col-12 col-md-9">
 		<input type="text" class="form-control" id="nom"
-			placeholder="Saisi nom" name="nom"
-			value="${plateforme.nom}" required />
+			placeholder="Saisir nom" name="nom"
+			value="${couleur.couleurNom}" required />
 		</div>
 	</div>
  	<div class="row align-items-center">
@@ -38,7 +38,7 @@
 		<div class="col-12 col-md-9">	
 		<input type="text" class="form-control" id="description"
 			placeholder="Saisi description" name="description" 
-			value="${plateforme.description}" required />
+			value="${couleur.couleurDescription}" required />
 		</div>
 	</div>
 	
@@ -47,7 +47,7 @@
 			<button type="submit" class="btn btn-primary mt-3">Add/Update</button>
 		</div>
 		<div class="col-12 col-md-4">		
-			<a class="btn btn-primary mt-3" href="ListJeux">Retour</a>
+			<a class="btn btn-primary mt-3" href="ListBiere">Retour</a>
 		</div>
 	</div>
   </form>
